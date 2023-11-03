@@ -11,6 +11,7 @@ import java.util.logging.Logger;
 
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
+import javafx.scene.Scene;
 import javafx.util.Pair;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
@@ -21,6 +22,9 @@ import seedu.address.model.interview.Interview;
  * Represents the in-memory model of the address book data.
  */
 public class ModelManager implements Model {
+    private static final String DARK_THEME = "view/DarkTheme.css";
+    private static final String LIGHT_THEME = "view/LightTheme.css";
+    private String currentTheme = DARK_THEME;
     private static final Logger logger = LogsCenter.getLogger(ModelManager.class);
 
     private final AddressBook addressBook;
@@ -214,6 +218,27 @@ public class ModelManager implements Model {
     public void sortInterviewList(Comparator<Interview> comparator) {
         requireNonNull(comparator);
         this.addressBook.sortInterview(comparator);
+    }
+
+    @Override
+    public String toggleTheme() {
+        // Toggle the current theme
+        if (DARK_THEME.equals(currentTheme)) {
+            currentTheme = LIGHT_THEME;
+        } else {
+            currentTheme = DARK_THEME;
+        }
+
+        // Update the UI theme
+        updateUITheme(currentTheme);
+
+        return currentTheme;
+    }
+
+    private void updateUITheme(String themeCssFile) {
+        //Scene scene = mainWindow.getPrimaryStage().getScene();
+        //scene.getStylesheets().clear();
+        //scene.getStylesheets().add(themeCssFile);
     }
 
     @Override

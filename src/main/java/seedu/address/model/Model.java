@@ -141,4 +141,10 @@ public interface Model {
      * Lists the pockets of time on a given day.
      */
     List<Pair<Time, Time>> listPocketsOfTimeOnGivenDay(Time day);
+
+    /**
+     * Toggles the theme from light to dark or dark to light.
+     * @return The filename of the new theme's CSS.
+     */
+    String toggleTheme();
 }
