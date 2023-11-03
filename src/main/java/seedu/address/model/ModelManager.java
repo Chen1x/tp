@@ -228,7 +228,7 @@ public class ModelManager implements Model {
         }
 
         // Update the UI theme
-        updateUITheme(currentTheme);
+        updateUiTheme(currentTheme);
 
         return currentTheme;
     }
