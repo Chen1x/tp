@@ -11,7 +11,6 @@ import java.util.logging.Logger;
 
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
-import javafx.scene.Scene;
 import javafx.util.Pair;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
@@ -26,7 +25,6 @@ public class ModelManager implements Model {
     private static final String LIGHT_THEME = "view/LightTheme.css";
     private String currentTheme = DARK_THEME;
     private static final Logger logger = LogsCenter.getLogger(ModelManager.class);
-
     private final AddressBook addressBook;
     private final UserPrefs userPrefs;
     private final FilteredList<Applicant> filteredApplicants;
@@ -235,7 +233,7 @@ public class ModelManager implements Model {
         return currentTheme;
     }
 
-    private void updateUITheme(String themeCssFile) {
+    private void updateUiTheme(String themeCssFile) {
         //Scene scene = mainWindow.getPrimaryStage().getScene();
         //scene.getStylesheets().clear();
         //scene.getStylesheets().add(themeCssFile);
